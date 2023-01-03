@@ -42,11 +42,11 @@
 
 
         <TextView
-            android:id="@+id/textView48"
+            android:id="@+id/stepsvalue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pacifico"
-            android:text="246"
+            android:text="0"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,23 +57,23 @@
             app:layout_constraintVertical_bias="0.416" />
 
         <ImageView
-            android:id="@+id/imageView58"
+            android:id="@+id/stepsLbl"
             android:layout_width="42dp"
             android:layout_height="43dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintHorizontal_bias="0.322"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.329"
-            app:srcCompat="@drawable/ic_baseline_electric_bolt_24" />
+            app:layout_constraintVertical_bias="0.334"
+            app:srcCompat="@drawable/ic_baseline_directions_run_24" />
 
         <TextView
             android:id="@+id/textView49"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pacifico"
-            android:text="Total calories"
+            android:text="Total steps"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"

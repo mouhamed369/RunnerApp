@@ -82,14 +82,14 @@ class SearchFragment : Fragment() {
         }
     }
     private fun addDataToList() {
-        mList.add(LanguageData("Java", R.drawable.ellipse))
-        mList.add(LanguageData("Kotlin", R.drawable.ellipse_14))
-        mList.add(LanguageData("C++", R.drawable.group_33640))
-        mList.add(LanguageData("Python", R.drawable.ellipse))
-        mList.add(LanguageData("HTML", R.drawable.ellipse_14))
-        mList.add(LanguageData("Swift", R.drawable.ellipse_14))
-        mList.add(LanguageData("C#", R.drawable.ellipse_14))
-        mList.add(LanguageData("JavaScript", R.drawable.ellipse_14))
+        mList.add(LanguageData("salma", R.drawable.ellipse))
+        mList.add(LanguageData("mohamed", R.drawable._32426524_2906081562956605_5446793475094069240_o))
+        mList.add(LanguageData("aymen", R.drawable.group_33640))
+        mList.add(LanguageData("choba", R.drawable.ellipse))
+        mList.add(LanguageData("abdallah", R.drawable._32426524_2906081562956605_5446793475094069240_o))
+        mList.add(LanguageData("saif", R.drawable.ellipse_14))
+        mList.add(LanguageData("yassin", R.drawable._32426524_2906081562956605_5446793475094069240_o))
+        mList.add(LanguageData("Jelani", R.drawable.ellipse_14))
     }
 
 }

@@ -1,19 +1,28 @@
 package com.example.runner
 
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.FragmentActivity
 import com.example.runner.view.EditprofileActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 // TODO: Rename parameter arguments, choose names that match
 
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
+class ProfileFragment : Fragment(R.layout.fragment_profile), SensorEventListener {
+    var running = false
+    var sensorManager: SensorManager? = null
 
 private lateinit var updateProfileButton: ImageButton
     private lateinit var fragmentContainerView2: FrameLayout
@@ -29,11 +38,14 @@ private lateinit var updateProfileButton: ImageButton
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         updateProfileButton = view?.findViewById(R.id.btnsettings)!!
         updateProfileButton.setOnClickListener {
             val activity: FragmentActivity? = activity
 
+
             startActivity(Intent(activity, EditprofileActivity::class.java))
+
 
         }
         fragmentContainerView2 = view?.findViewById(R.id.fragmentContainerView2)!!
@@ -69,4 +81,31 @@ private lateinit var updateProfileButton: ImageButton
 
 
 
-}}
+}
+
+    override fun onResume() {
+        super.onResume()
+        running=true
+        val stepSensor: Sensor? = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+        if (stepSensor == null) {
+            Toast.makeText(activity, "active Step Counter Sensor!", Toast.LENGTH_SHORT).show()
+        } else {
+            sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI)
+        }
+    }
+    override fun onPause() {
+        super.onPause()
+        running=false
+        sensorManager?.unregisterListener(this)
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        if (running) {
+            stepsvalue.setText("" + event?.values!![0] )
+        }
+    }
+
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
+    }
+}
